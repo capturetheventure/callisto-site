@@ -68,15 +68,15 @@
                 <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-accentSolid/10 blur-[100px] rounded-full pointer-events-none"></div>
 
                 <!--
-                    Phone mockup. Drop a real portrait screenshot at assets/screenshot.png
-                    (recommended ratio 9:19.5) and update the <img src> below.
+                    Phone mockup. The frame matches the screenshot aspect ratio (1150:2492 ~ 9:19.5)
+                    so the image fills it without cropping.
                 -->
-                <div class="relative w-[280px] sm:w-[320px] h-[570px] sm:h-[650px] bg-bg border-4 border-borderStrong rounded-[2.5rem] shadow-2xl overflow-hidden">
+                <div class="relative w-[280px] sm:w-[320px] aspect-[1150/2492] bg-bg border-4 border-borderStrong rounded-[2.5rem] shadow-2xl overflow-hidden">
                     <img src="assets/screenshot.png"
                          alt="Callisto running on Android"
                          class="absolute inset-0 w-full h-full object-cover object-top">
-                    <!-- Notch overlay (sits above the screenshot) -->
-                    <div class="absolute top-0 inset-x-0 h-6 bg-borderStrong rounded-b-xl w-40 mx-auto z-20"></div>
+                    <!-- Pixel-style centered punch-hole camera -->
+                    <div class="absolute top-[10px] sm:top-[12px] left-1/2 -translate-x-1/2 w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-black shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06)] z-20"></div>
                 </div>
             </div>
 
