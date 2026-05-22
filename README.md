@@ -20,7 +20,7 @@ Static HTML + Tailwind (via CDN) + FontAwesome. No build step.
 - [`assets/callisto-icon.png`](assets/callisto-icon.png) — 512 px launcher icon (08c artwork)
 - [`assets/callisto-icon@2x.png`](assets/callisto-icon@2x.png) — 1024 px @2x
 - [`assets/tailwind-config.js`](assets/tailwind-config.js) — design tokens (mirrors `CallistoColors` in the app)
-- [`assets/screenshot.svg`](assets/screenshot.svg) — placeholder for the phone-mockup screenshot. Replace with a real PNG/JPG and update the `<img src>` in `index.html`.
+- [`assets/screenshot.svg`](assets/screenshot.png) — app screenshot.
 
 ## Deploy
 
