@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Open-source licences for components used in Callisto.">
+    <meta name="theme-color" content="#0E1116">
+    <title>Open-source Licences — Callisto</title>
+    <link rel="icon" type="image/png" href="assets/callisto-icon.png">
+    <link rel="apple-touch-icon" href="assets/callisto-icon@2x.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="assets/tailwind-config.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .prose h2 { font-size: 1.5rem; font-weight: 700; color: #F5F7FA; margin-top: 2.5rem; margin-bottom: 1rem; }
+        .prose h3 { font-size: 1.1rem; font-weight: 600; color: #E6E9EF; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+        .prose p { color: #9AA3B2; line-height: 1.75; margin-bottom: 1rem; }
+        .prose .component { color: #E6E9EF; font-weight: 600; }
+        .prose .copyright { color: #6B7280; font-size: 0.9rem; }
+        .prose .licence-block { background: #10141B; border: 1px solid #1B2029; border-radius: 0.75rem; padding: 1.25rem 1.5rem; font-size: 0.9rem; color: #9AA3B2; margin-top: 1rem; }
+        .prose .components { background: #13171F; border: 1px solid #1B2029; border-radius: 0.75rem; padding: 1.25rem 1.5rem; margin-bottom: 1rem; }
+        .prose .components > div { padding: 0.5rem 0; }
+        .prose .components > div + div { border-top: 1px solid #1B2029; }
+        .prose a { color: #5EEAD4; text-decoration: underline; text-underline-offset: 3px; }
+        .prose .meta { color: #6B7280; font-size: 0.875rem; }
+        .divider { height: 1px; background: #1B2029; margin: 3rem 0; }
+    </style>
+</head>
+<body class="bg-bg text-fg font-sans antialiased flex flex-col min-h-screen">
+
+    <nav class="container mx-auto px-6 py-6 flex items-center justify-between">
+        <a href="index.html" class="flex items-center gap-3">
+            <img src="assets/callisto-icon.png" alt="Callisto" width="40" height="40" class="w-10 h-10 rounded-xl shadow-[0_0_15px_rgba(94,234,212,0.25)]">
+            <span class="text-2xl font-bold tracking-tight text-fgStrong">Callisto</span>
+        </a>
+        <div class="hidden sm:flex items-center gap-6 text-sm">
+            <a href="index.html#features" class="text-fgMuted hover:text-fgStrong transition-colors">Features</a>
+            <a href="legal.html" class="text-fgMuted hover:text-fgStrong transition-colors">Legal</a>
+            <a href="mailto:dev@callistoapp.eu" class="text-fgMuted hover:text-fgStrong transition-colors">Contact</a>
+        </div>
+    </nav>
+
+    <main class="flex-grow container mx-auto px-6 py-8 md:py-12 max-w-3xl">
+        <a href="legal.html" class="inline-flex items-center gap-2 text-sm text-fgMuted hover:text-accent transition-colors mb-8">
+            <i class="fa-solid fa-arrow-left text-xs"></i>
+            Back to Legal
+        </a>
+
+        <article class="prose">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-fgStrong mb-4">Open-source Licences</h1>
+            <p class="meta mb-12">Callisto incorporates the following open-source components. Their copyright notices and licence texts are reproduced below.</p>
+
+            <h2>MIT Licence</h2>
+            <div class="components">
+                <div><span class="component">CodeMirror 6</span><div class="copyright">Copyright (C) 2018–2021 by Marijn Haverbeke &lt;marijn@haverbeke.berlin&gt; and others</div></div>
+                <div><span class="component">marked</span><div class="copyright">Copyright (c) 2018+, the Marked authors</div></div>
+                <div><span class="component">KaTeX</span><div class="copyright">Copyright (c) 2013–2020 Khan Academy and other contributors</div></div>
+                <div><span class="component">Jedi</span><div class="copyright">Copyright (c) 2013–2023 David Halter and others</div></div>
+                <div><span class="component">parso</span><div class="copyright">Copyright (c) 2018 David Halter</div></div>
+                <div><span class="component">beautifulsoup4</span><div class="copyright">Copyright (c) 2004–2023 Leonard Richardson</div></div>
+                <div><span class="component">openpyxl</span><div class="copyright">Copyright (c) 2010 openpyxl</div></div>
+                <div><span class="component">Pillow</span><div class="copyright">Copyright © 2010–2023 by Alex Clark and contributors</div></div>
+            </div>
+            <div class="licence-block">
+                <p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+                <p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+                <p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+            </div>
+
+            <div class="divider"></div>
+
+            <h2>BSD 3-Clause Licence</h2>
+            <div class="components">
+                <div><span class="component">NumPy</span><div class="copyright">Copyright (c) 2005–2024, NumPy Developers. All rights reserved.</div></div>
+                <div><span class="component">pandas</span><div class="copyright">Copyright (c) 2008–2011, AQR Capital Management, LLC, Lambda Foundry, Inc. and PyData Development Team. All rights reserved.<br>Copyright (c) 2011–2024, Open source contributors. All rights reserved.</div></div>
+                <div><span class="component">Matplotlib</span><div class="copyright">Copyright (c) 2002–2024 Matplotlib Development Team. All rights reserved.</div></div>
+                <div><span class="component">scikit-learn</span><div class="copyright">Copyright (c) 2007–2024 The scikit-learn developers. All rights reserved.</div></div>
+                <div><span class="component">SciPy</span><div class="copyright">Copyright (c) 2001–2024 SciPy Developers. All rights reserved.</div></div>
+                <div><span class="component">statsmodels</span><div class="copyright">Copyright (c) 2009–2024, statsmodels Developers. All rights reserved.</div></div>
+                <div><span class="component">SymPy</span><div class="copyright">Copyright (c) 2006–2024 SymPy Development Team. All rights reserved.</div></div>
+                <div><span class="component">seaborn</span><div class="copyright">Copyright (c) 2012–2023, Michael Waskom. All rights reserved.</div></div>
+            </div>
+            <div class="licence-block">
+                <p>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</p>
+                <p>1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.</p>
+                <p>2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.</p>
+                <p>3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.</p>
+                <p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+            </div>
+
+            <div class="divider"></div>
+
+            <h2>Apache Licence, Version 2.0</h2>
+            <div class="components">
+                <div><span class="component">Jetpack Compose / AndroidX</span><div class="copyright">Copyright (C) 2019 The Android Open Source Project</div></div>
+                <div><span class="component">Roboto</span><div class="copyright">Copyright (c) 2015 Google LLC</div></div>
+                <div><span class="component">Roboto Flex</span><div class="copyright">Copyright (c) 2017 Google LLC</div></div>
+                <div><span class="component">JetBrains Mono</span><div class="copyright">Copyright (c) 2019–2023 JetBrains s.r.o.</div></div>
+                <div><span class="component">requests</span><div class="copyright">Copyright (c) 2019 Kenneth Reitz</div></div>
+            </div>
+            <div class="licence-block">
+                <p>Licensed under the Apache License, Version 2.0 (the "License"); you may not use these files except in compliance with the License. You may obtain a copy of the License at:</p>
+                <p><a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></p>
+                <p>Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.</p>
+            </div>
+
+            <div class="divider"></div>
+
+            <h2>Python Software Foundation Licence Version 2</h2>
+            <div class="components">
+                <div><span class="component">Python 3.10</span> <span class="copyright">(bundled via Chaquopy)</span><div class="copyright">Copyright (c) 2001–2023 Python Software Foundation. All Rights Reserved.</div></div>
+            </div>
+            <div class="licence-block">
+                <p><strong>PYTHON SOFTWARE FOUNDATION LICENSE VERSION 2</strong></p>
+                <p>1. This LICENSE AGREEMENT is between the Python Software Foundation ("PSF"), and the Individual or Organization ("Licensee") accessing and otherwise using this software ("Python") in source or binary form and its associated documentation.</p>
+                <p>2. Subject to the terms and conditions of this License Agreement, PSF hereby grants Licensee a nonexclusive, royalty-free, world-wide license to reproduce, analyze, test, perform and/or display publicly, prepare derivative works, distribute, and otherwise use Python alone or in any derivative version, provided, however, that PSF's License Agreement and PSF's notice of copyright, i.e., "Copyright (c) 2001-2023 Python Software Foundation; All Rights Reserved" are retained in Python alone or in any derivative version prepared by Licensee.</p>
+                <p>3. In the event Licensee prepares a derivative work that is based on or incorporates Python or any part thereof, and wants to make the derivative work available to others as provided herein, then Licensee hereby agrees to include in any such work a brief summary of the changes made to Python.</p>
+                <p>4. PSF is making Python available to Licensee on an "AS IS" basis. PSF MAKES NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED. BY WAY OF EXAMPLE, BUT NOT LIMITATION, PSF MAKES NO AND DISCLAIMS ANY REPRESENTATION OR WARRANTY OF MERCHANTABILITY OR FITNESS FOR ANY PARTICULAR PURPOSE OR THAT THE USE OF PYTHON WILL NOT INFRINGE ANY THIRD PARTY RIGHTS.</p>
+                <p>5. PSF SHALL NOT BE LIABLE TO LICENSEE OR ANY OTHER USERS OF PYTHON FOR ANY INCIDENTAL, SPECIAL, OR CONSEQUENTIAL DAMAGES OR LOSS AS A RESULT OF MODIFYING, DISTRIBUTING, OR OTHERWISE USING PYTHON, OR ANY DERIVATIVE THEREOF, EVEN IF ADVISED OF THE POSSIBILITY THEREOF.</p>
+                <p>6. This License Agreement will automatically terminate upon a material breach of its terms and conditions.</p>
+                <p>7. Nothing in this License Agreement shall be deemed to create any relationship of agency, partnership, or joint venture between PSF and Licensee. This License Agreement does not grant permission to use PSF trademarks or trade name in a licensee's product.</p>
+                <p>8. By copying, installing or otherwise using Python, Licensee agrees to be bound by the terms and conditions of this License Agreement.</p>
+            </div>
+
+            <div class="divider"></div>
+
+            <h2>Other components</h2>
+            <p>The following components are used under licences that do not require reproduction of licence text within the application UI:</p>
+            <p><span class="component">Chaquopy</span> — © Chaquopy Ltd. Used under a commercial licence. See <a href="https://chaquopy.com">https://chaquopy.com</a> for terms.</p>
+            <p><span class="component">Firebase (Crashlytics, Analytics)</span> — © Google LLC. Used under the Google APIs Terms of Service.</p>
+        </article>
+    </main>
+
+    <footer class="bg-bg py-8 border-t border-borderApp mt-12">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4 text-sm">
+            <p class="text-fgDim">&copy; 2026 Sebastian Pichler. All rights reserved.</p>
+            <div class="flex items-center gap-6">
+                <a href="legal.html" class="text-fgMuted hover:text-accent transition-colors">Legal</a>
+                <a href="mailto:dev@callistoapp.eu" class="text-fgMuted hover:text-accent transition-colors flex items-center gap-2">
+                    <i class="fa-regular fa-envelope"></i>
+                    dev@callistoapp.eu
+                </a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

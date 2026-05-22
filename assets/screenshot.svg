@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Placeholder for the phone-mockup screenshot. Replace with a real PNG/JPG screenshot
+     at the same path (assets/screenshot.png) and update the <img src> in index.html. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 2340" preserveAspectRatio="xMidYMid slice">
+    <defs>
+        <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#0E1116"/>
+            <stop offset="1" stop-color="#13171F"/>
+        </linearGradient>
+    </defs>
+    <rect width="1080" height="2340" fill="url(#bg)"/>
+    <rect x="60" y="60" width="960" height="2220" rx="36" ry="36"
+          fill="none" stroke="#323A47" stroke-width="6" stroke-dasharray="24 18"/>
+    <g font-family="Inter, system-ui, sans-serif" text-anchor="middle" fill="#9AA3B2">
+        <text x="540" y="1110" font-size="64" font-weight="700" fill="#E6E9EF">Screenshot goes here</text>
+        <text x="540" y="1200" font-size="40">Replace assets/screenshot.svg</text>
+        <text x="540" y="1260" font-size="40">with your real PNG / JPG screenshot.</text>
+        <text x="540" y="1380" font-size="32" fill="#6B7280">Recommended aspect ratio ~ 9 : 19.5 (portrait)</text>
+    </g>
+</svg>
