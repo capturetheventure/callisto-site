@@ -3,9 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Callisto is a Python and Jupyter Notebook IDE for Android. Edit and execute .ipynb and .py files entirely on your device, with the full scientific Python stack pre-installed.">
+    <meta name="description" content="Callisto is a Jupyter Notebook and Python IDE app for Android. Open, edit, and run .ipynb notebooks and .py scripts fully offline on your phone — with numpy, matplotlib, and the scientific Python stack built in.">
     <meta name="theme-color" content="#0E1116">
-    <title>Callisto — Python &amp; Jupyter Notebooks on Android</title>
+    <title>Callisto — Run &amp; Edit Jupyter Notebooks on Android</title>
+
+    <link rel="canonical" href="https://callistoapp.eu/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Callisto">
+    <meta property="og:url" content="https://callistoapp.eu/">
+    <meta property="og:title" content="Callisto — Run &amp; Edit Jupyter Notebooks on Android">
+    <meta property="og:description" content="Open, edit, and run .ipynb notebooks and Python scripts fully offline on your Android phone. No cloud, no account, no Termux setup.">
+    <meta property="og:image" content="https://callistoapp.eu/assets/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Callisto — Run &amp; Edit Jupyter Notebooks on Android">
+    <meta name="twitter:description" content="Open, edit, and run .ipynb notebooks and Python scripts fully offline on your Android phone. No cloud, no account, no Termux setup.">
+    <meta name="twitter:image" content="https://callistoapp.eu/assets/og-image.png">
 
     <link rel="icon" type="image/png" href="assets/callisto-icon.png">
     <link rel="apple-touch-icon" href="assets/callisto-icon@2x.png">
@@ -18,6 +36,85 @@
     <script src="assets/tailwind-config.js"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Callisto: Jupyter Editor",
+      "operatingSystem": "Android",
+      "applicationCategory": "DeveloperApplication",
+      "description": "Callisto is a Jupyter Notebook editor and Python IDE for Android. Open .ipynb files, edit cells, run Python code, and see output — fully offline, with no server or cloud account.",
+      "url": "https://callistoapp.eu/",
+      "image": "https://callistoapp.eu/assets/callisto-icon@2x.png",
+      "installUrl": "https://play.google.com/store/apps/details?id=app.callisto",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Sebastian Pichler"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can you run Jupyter notebooks on Android?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Callisto runs Jupyter notebooks entirely on your Android device using CPython 3.10 — no server, no Google Colab, and no internet connection required. You can run cells individually, run all, and interrupt long-running code."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I open and edit an .ipynb file on my phone?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Install Callisto from Google Play, then open the notebook from your file manager via “Open with…” or from the in-app library. Callisto reads and writes real .ipynb v4 files: edit code and Markdown cells, reorder them, run them, and save back."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need Termux or a Linux environment to run Python on Android?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Callisto is a regular Android app — no Termux, no proot, no pip troubleshooting. Python and the bundled packages ship inside the app and work out of the box."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Callisto work offline?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, completely. Code is edited and executed on-device, so it works on a plane or without any signal. There is no account and your code is never uploaded."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which Python packages are included?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The free tier bundles numpy, matplotlib, and Pillow. The one-time Lifetime Unlock adds pandas, scikit-learn, scipy, seaborn, statsmodels, sympy, openpyxl, beautifulsoup4, and requests — no subscription."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Callisto free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Callisto is free to install and use with the core stack. A single one-time purchase unlocks the full scientific package set and premium features — there is no subscription."
+          }
+        }
+      ]
+    }
+    </script>
 </head>
 <body class="bg-bg text-fg font-sans antialiased selection:bg-accentSolid/30 selection:text-fgStrong flex flex-col min-h-screen">
 
@@ -30,6 +127,7 @@
         <div class="hidden sm:flex items-center gap-6 text-sm">
             <a href="#features" class="text-fgMuted hover:text-fgStrong transition-colors">Features</a>
             <a href="#stack" class="text-fgMuted hover:text-fgStrong transition-colors">Stack</a>
+            <a href="#faq" class="text-fgMuted hover:text-fgStrong transition-colors">FAQ</a>
             <a href="legal.html" class="text-fgMuted hover:text-fgStrong transition-colors">Legal</a>
             <a href="mailto:dev@callistoapp.eu" class="text-fgMuted hover:text-fgStrong transition-colors">Contact</a>
         </div>
@@ -193,8 +291,60 @@
             </div>
         </section>
 
+        <!-- FAQ Section -->
+        <section id="faq" class="bg-bg2 border-t border-borderApp py-20 scroll-mt-20">
+            <div class="container mx-auto px-6 max-w-3xl">
+                <h2 class="text-3xl md:text-4xl font-bold text-fgStrong mb-12">Frequently asked questions</h2>
+                <div class="space-y-10">
+
+                    <div>
+                        <h3 class="text-xl font-bold text-fgStrong mb-3">Can you run Jupyter notebooks on Android?</h3>
+                        <p class="text-fgMuted leading-relaxed">
+                            Yes. Callisto runs Jupyter notebooks entirely on your Android device using CPython 3.10 — no server, no Google Colab, and no internet connection required. You can run cells individually, run all, and interrupt long-running code.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xl font-bold text-fgStrong mb-3">How do I open and edit an <code class="font-mono text-fg">.ipynb</code> file on my phone?</h3>
+                        <p class="text-fgMuted leading-relaxed">
+                            Install Callisto from Google Play, then open the notebook from your file manager via &ldquo;Open with&hellip;&rdquo; or from the in-app library. Callisto reads and writes real <code class="font-mono text-fg">.ipynb</code> v4 files: edit code and Markdown cells, reorder them, run them, and save back.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xl font-bold text-fgStrong mb-3">Do I need Termux or a Linux environment to run Python on Android?</h3>
+                        <p class="text-fgMuted leading-relaxed">
+                            No. Callisto is a regular Android app — no Termux, no proot, no pip troubleshooting. Python and the bundled packages ship inside the app and work out of the box.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xl font-bold text-fgStrong mb-3">Does Callisto work offline?</h3>
+                        <p class="text-fgMuted leading-relaxed">
+                            Yes, completely. Code is edited and executed on-device, so it works on a plane or without any signal. There is no account and your code is never uploaded.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xl font-bold text-fgStrong mb-3">Which Python packages are included?</h3>
+                        <p class="text-fgMuted leading-relaxed">
+                            The free tier bundles <code class="font-mono text-fg">numpy</code>, <code class="font-mono text-fg">matplotlib</code>, and <code class="font-mono text-fg">Pillow</code>. The one-time Lifetime Unlock adds <code class="font-mono text-fg">pandas</code>, <code class="font-mono text-fg">scikit-learn</code>, <code class="font-mono text-fg">scipy</code>, <code class="font-mono text-fg">seaborn</code>, <code class="font-mono text-fg">statsmodels</code>, <code class="font-mono text-fg">sympy</code>, <code class="font-mono text-fg">openpyxl</code>, <code class="font-mono text-fg">beautifulsoup4</code>, and <code class="font-mono text-fg">requests</code> — no subscription.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xl font-bold text-fgStrong mb-3">Is Callisto free?</h3>
+                        <p class="text-fgMuted leading-relaxed">
+                            Callisto is free to install and use with the core stack. A single one-time purchase unlocks the full scientific package set and premium features — there is no subscription.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
         <!-- Privacy / CTA Section -->
-        <section class="bg-bg2 border-t border-borderApp py-20">
+        <section class="border-t border-borderApp py-20">
             <div class="container mx-auto px-6 max-w-3xl text-center space-y-8">
                 <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accentSolid/10 border border-accentSolid/30 text-accent text-sm font-semibold">
                     <i class="fa-solid fa-shield-halved"></i>
