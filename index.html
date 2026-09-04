@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Callisto is a Jupyter Notebook and Python IDE app for Android. Open, edit, and run .ipynb notebooks and .py scripts fully offline on your phone — with numpy, matplotlib, and the scientific Python stack built in.">
+    <meta name="description" content="Callisto is a Jupyter Notebook and Python IDE app for Android. Open, edit, and run .ipynb notebooks and .py scripts on your phone — offline by default, or on a Jupyter server you provide, with the scientific Python stack built in.">
     <meta name="theme-color" content="#0E1116">
     <title>Callisto — Run &amp; Edit Jupyter Notebooks on Android</title>
 
@@ -14,7 +14,7 @@
     <meta property="og:site_name" content="Callisto">
     <meta property="og:url" content="https://callistoapp.eu/">
     <meta property="og:title" content="Callisto — Run &amp; Edit Jupyter Notebooks on Android">
-    <meta property="og:description" content="Open, edit, and run .ipynb notebooks and Python scripts fully offline on your Android phone. No cloud, no account, no Termux setup.">
+    <meta property="og:description" content="Open, edit, and run .ipynb notebooks and Python scripts on your Android phone — offline by default, or on your own Jupyter server. No cloud account, no Termux setup.">
     <meta property="og:image" content="https://callistoapp.eu/assets/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -22,7 +22,7 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Callisto — Run &amp; Edit Jupyter Notebooks on Android">
-    <meta name="twitter:description" content="Open, edit, and run .ipynb notebooks and Python scripts fully offline on your Android phone. No cloud, no account, no Termux setup.">
+    <meta name="twitter:description" content="Open, edit, and run .ipynb notebooks and Python scripts on your Android phone — offline by default, or on your own Jupyter server. No cloud account, no Termux setup.">
     <meta name="twitter:image" content="https://callistoapp.eu/assets/og-image.png">
 
     <link rel="icon" type="image/png" href="assets/callisto-icon.png">
@@ -44,7 +44,8 @@
       "name": "Callisto: Jupyter Editor",
       "operatingSystem": "Android",
       "applicationCategory": "DeveloperApplication",
-      "description": "Callisto is a Jupyter Notebook editor and Python IDE for Android. Open .ipynb files, edit cells, run Python code, and see output — fully offline, with no server or cloud account.",
+      "description": "Callisto is a Jupyter Notebook editor and Python IDE for Android. Open .ipynb files, edit cells, run Python code, and see output — on-device by default, so it works fully offline with no server or cloud account. Notebooks can optionally be run on a Jupyter server you provide.",
+      "softwareVersion": "1.5.0",
       "url": "https://callistoapp.eu/",
       "image": "https://callistoapp.eu/assets/callisto-icon@2x.png",
       "installUrl": "https://play.google.com/store/apps/details?id=app.callisto",
@@ -69,7 +70,7 @@
           "name": "Can you run Jupyter notebooks on Android?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. Callisto runs Jupyter notebooks entirely on your Android device using CPython 3.10 — no server, no Google Colab, and no internet connection required. You can run cells individually, run all, and interrupt long-running code."
+            "text": "Yes. Callisto runs Jupyter notebooks on your Android device using CPython 3.10 — no server, no Google Colab, and no internet connection required. You can run cells individually, run all, and interrupt long-running code. If you would rather use a bigger machine, connecting your own Jupyter server is optional."
           }
         },
         {
@@ -93,7 +94,15 @@
           "name": "Does Callisto work offline?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes, completely. Code is edited and executed on-device, so it works on a plane or without any signal. There is no account and your code is never uploaded."
+            "text": "Yes. Editing and execution happen on-device by default, so Callisto works on a plane or without any signal, and there is no account. Connecting to a Jupyter server is the one thing that needs a network — it is optional, off until you set one up, and it is your server, not ours."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I run a notebook on a remote Jupyter server?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, from version 1.5.0. Callisto connects to any Jupyter server — Termux on the same phone, a desktop on your Wi-Fi, or a rented GPU box — and runs your notebook there. Output streams back while the code is still running, a run survives a dropped connection, and you can browse, upload and download the server's files. Remote kernels are part of the one-time Lifetime Unlock; on-device execution stays free."
           }
         },
         {
@@ -109,7 +118,7 @@
           "name": "Is Callisto free?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Callisto is free to install and use with the core stack. A single one-time purchase unlocks the full scientific package set and premium features — there is no subscription."
+            "text": "Callisto is free to install and use with the core stack. A single one-time purchase unlocks the full scientific package set, remote kernels and the coding keyboard — there is no subscription."
           }
         }
       ]
@@ -144,7 +153,7 @@
                     <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-accentSolid">In your pocket.</span>
                 </h1>
                 <p class="text-lg md:text-xl text-fgMuted leading-relaxed">
-                    Callisto is a full Python IDE for Android. Edit and run <code class="font-mono text-fg text-base">.ipynb</code> notebooks and <code class="font-mono text-fg text-base">.py</code> scripts entirely on your device — no cloud, no account, no internet required.
+                    Callisto is a full Python IDE for Android. Edit and run <code class="font-mono text-fg text-base">.ipynb</code> notebooks and <code class="font-mono text-fg text-base">.py</code> scripts on your device — no cloud, no account, no internet required. Or point it at your own Jupyter server when the phone isn't enough.
                 </p>
                 <div class="pt-2 flex flex-col sm:flex-row gap-4">
                     <a href="https://play.google.com/store/apps/details?id=app.callisto" class="inline-flex items-center gap-4 bg-fgStrong hover:bg-fg text-bg px-8 py-4 rounded-full font-bold transition-all transform hover:scale-105 hover:shadow-[0_0_20px_rgba(230,233,239,0.2)]">
@@ -168,8 +177,15 @@
                 <!--
                     Phone mockup. The frame matches the screenshot aspect ratio (1150:2492 ~ 9:19.5)
                     so the image fills it without cropping.
+
+                    The corner radius is a constraint, not a taste call: the frame clips the
+                    screenshot, and the status bar sits ~3.4 px below the top edge at the 280 px
+                    width with the clock 10.7 px in from the left. 2.5rem (36 px inner) cut the
+                    leading "1" off the clock and clipped the battery; 1.5rem (20 px inner) clears
+                    both with ~10 % margin. Re-check this if the screenshot is ever reshot with a
+                    different status-bar layout.
                 -->
-                <div class="relative w-[280px] sm:w-[320px] aspect-[1150/2492] bg-bg border-4 border-borderStrong rounded-[2.5rem] shadow-2xl overflow-hidden">
+                <div class="relative w-[280px] sm:w-[320px] aspect-[1150/2492] bg-bg border-4 border-borderStrong rounded-[1.5rem] shadow-2xl overflow-hidden">
                     <img src="assets/screenshot.png"
                          alt="Callisto running on Android"
                          class="absolute inset-0 w-full h-full object-cover object-top">
@@ -196,9 +212,9 @@
                         <div class="w-12 h-12 bg-accentSolid/10 rounded-lg flex items-center justify-center mb-6">
                             <i class="fa-solid fa-microchip text-accent text-xl"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-fgStrong mb-3">100% on-device</h3>
+                        <h3 class="text-xl font-bold text-fgStrong mb-3">On-device by default</h3>
                         <p class="text-fgMuted leading-relaxed">
-                            CPython 3.10 runs locally via Chaquopy. No servers, no accounts, no telemetry on your code. Works offline on a plane or a train.
+                            CPython 3.10 runs locally via Chaquopy. No server required, no account, no telemetry on your code. Works offline on a plane or a train.
                         </p>
                     </div>
 
@@ -252,6 +268,42 @@
                         </p>
                     </div>
 
+                    <div class="reveal-item opacity-0 translate-y-8 transition-all duration-700 ease-out bg-bg3 border border-borderSoft hover:border-borderStrong rounded-2xl p-8 flex flex-col">
+                        <div class="w-12 h-12 bg-accentSolid/10 rounded-lg flex items-center justify-center mb-6">
+                            <i class="fa-solid fa-wave-square text-accent text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-fgStrong mb-3">Live output</h3>
+                        <p class="text-fgMuted leading-relaxed">
+                            Output streams back while the cell is still running — a long training run is a live log, not a spinner. <code class="font-mono text-fg">input()</code> and <code class="font-mono text-fg">getpass()</code> get a field to answer them.
+                        </p>
+                    </div>
+
+                    <div class="reveal-item opacity-0 translate-y-8 transition-all duration-700 ease-out delay-100 bg-bg3 border border-borderSoft hover:border-borderStrong rounded-2xl p-8 flex flex-col">
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="w-12 h-12 bg-accentSolid/10 rounded-lg flex items-center justify-center">
+                                <i class="fa-solid fa-server text-accent text-xl"></i>
+                            </div>
+                            <span class="px-2.5 py-1 rounded-full bg-accentSolid/10 border border-accentSolid/30 text-accent text-[11px] font-bold uppercase tracking-wider">Pro</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-fgStrong mb-3">Remote kernels</h3>
+                        <p class="text-fgMuted leading-relaxed">
+                            Connect any Jupyter server and run the same notebook there — Termux on this phone, a desktop on your Wi-Fi, or a rented GPU box. Setup guides for each are built into the app.
+                        </p>
+                    </div>
+
+                    <div class="reveal-item opacity-0 translate-y-8 transition-all duration-700 ease-out delay-150 bg-bg3 border border-borderSoft hover:border-borderStrong rounded-2xl p-8 flex flex-col">
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="w-12 h-12 bg-accentSolid/10 rounded-lg flex items-center justify-center">
+                                <i class="fa-solid fa-cloud-arrow-up text-accent text-xl"></i>
+                            </div>
+                            <span class="px-2.5 py-1 rounded-full bg-accentSolid/10 border border-accentSolid/30 text-accent text-[11px] font-bold uppercase tracking-wider">Pro</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-fgStrong mb-3">Server files</h3>
+                        <p class="text-fgMuted leading-relaxed">
+                            Browse the server's files, upload and download, pick the folder your code runs in, and open a notebook straight off the box. A run survives a dropped connection.
+                        </p>
+                    </div>
+
                 </div>
             </div>
         </section>
@@ -265,7 +317,7 @@
                         Callisto ships with the libraries you actually use. No <code class="font-mono text-fg">pip install</code>, no broken wheels, no waiting for a manylinux build that doesn't exist on ARM.
                     </p>
                     <p class="text-fgMuted leading-relaxed">
-                        Free tier includes the core data-science stack. The one-time <span class="text-fg font-semibold">Lifetime Unlock</span> adds extended packages and premium features — no subscription, ever.
+                        Free tier includes the core data-science stack. The one-time <span class="text-fg font-semibold">Lifetime Unlock</span> adds the extended packages, remote kernels and the coding keyboard — no subscription, ever.
                     </p>
                 </div>
                 <div class="bg-panel border border-borderSoft rounded-2xl p-6 md:p-8">
@@ -300,7 +352,7 @@
                     <div>
                         <h3 class="text-xl font-bold text-fgStrong mb-3">Can you run Jupyter notebooks on Android?</h3>
                         <p class="text-fgMuted leading-relaxed">
-                            Yes. Callisto runs Jupyter notebooks entirely on your Android device using CPython 3.10 — no server, no Google Colab, and no internet connection required. You can run cells individually, run all, and interrupt long-running code.
+                            Yes. Callisto runs Jupyter notebooks on your Android device using CPython 3.10 — no server, no Google Colab, and no internet connection required. You can run cells individually, run all, and interrupt long-running code. If you would rather use a bigger machine, connecting your own Jupyter server is optional.
                         </p>
                     </div>
 
@@ -321,7 +373,14 @@
                     <div>
                         <h3 class="text-xl font-bold text-fgStrong mb-3">Does Callisto work offline?</h3>
                         <p class="text-fgMuted leading-relaxed">
-                            Yes, completely. Code is edited and executed on-device, so it works on a plane or without any signal. There is no account and your code is never uploaded.
+                            Yes. Editing and execution happen on-device by default, so Callisto works on a plane or without any signal, and there is no account. Connecting to a Jupyter server is the one thing that needs a network — it is optional, off until you set one up, and it is your server, not ours.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xl font-bold text-fgStrong mb-3">Can I run a notebook on a remote Jupyter server?</h3>
+                        <p class="text-fgMuted leading-relaxed">
+                            Yes, from version 1.5.0. Callisto connects to any Jupyter server &mdash; Termux on the same phone, a desktop on your Wi-Fi, or a rented GPU box &mdash; and runs your notebook there. Output streams back while the code is still running, a run survives a dropped connection, and you can browse, upload and download the server's files. Remote kernels are part of the one-time Lifetime Unlock; on-device execution stays free.
                         </p>
                     </div>
 
@@ -335,7 +394,7 @@
                     <div>
                         <h3 class="text-xl font-bold text-fgStrong mb-3">Is Callisto free?</h3>
                         <p class="text-fgMuted leading-relaxed">
-                            Callisto is free to install and use with the core stack. A single one-time purchase unlocks the full scientific package set and premium features — there is no subscription.
+                            Callisto is free to install and use with the core stack. A single one-time purchase unlocks the full scientific package set, remote kernels and the coding keyboard — there is no subscription.
                         </p>
                     </div>
 
@@ -348,11 +407,11 @@
             <div class="container mx-auto px-6 max-w-3xl text-center space-y-8">
                 <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accentSolid/10 border border-accentSolid/30 text-accent text-sm font-semibold">
                     <i class="fa-solid fa-shield-halved"></i>
-                    Your code stays on your device
+                    Your code goes where you send it — nowhere else
                 </div>
                 <h2 class="text-3xl md:text-4xl font-bold text-fgStrong">Privacy by design.</h2>
                 <p class="text-fgMuted leading-relaxed text-lg">
-                    No account. No code uploads. Crash diagnostics are anonymous and contain no file contents. Usage analytics are opt-in and off by default. The internet permission exists only so <code class="font-mono text-fg">requests</code> works for code <em>you</em> write.
+                    No account. We never receive your code. Crash diagnostics are anonymous and contain no file contents. Usage analytics are opt-in and off by default. The internet permission covers two things and nothing else: code <em>you</em> write that reaches out (<code class="font-mono text-fg">requests</code>), and the Jupyter server <em>you</em> chose to connect to.
                 </p>
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
                     <a href="https://play.google.com/store/apps/details?id=app.callisto" class="inline-flex items-center gap-4 bg-accentSolid hover:bg-accent text-accentFg px-8 py-4 rounded-full font-bold transition-all transform hover:scale-105">
@@ -376,7 +435,7 @@
                     <img src="assets/callisto-icon.png" alt="Callisto" width="32" height="32" class="w-8 h-8 rounded-lg">
                     <span class="text-lg font-bold text-fgStrong">Callisto</span>
                 </div>
-                <p class="text-fgMuted text-sm max-w-xs">Jupyter Notebooks and Python scripting on Android — no cloud, no account, just code.</p>
+                <p class="text-fgMuted text-sm max-w-xs">Jupyter Notebooks and Python scripting on Android — your device or your server, no cloud account, just code.</p>
             </div>
             <div>
                 <h4 class="text-fgStrong font-semibold mb-3 text-sm uppercase tracking-wider">Product</h4>
