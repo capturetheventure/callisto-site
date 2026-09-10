@@ -1,6 +1,8 @@
-// Shared Tailwind config for the Callisto landing site.
-// Mirrors design tokens used in the Android app (CallistoColors).
-tailwind.config = {
+// Tailwind config for the Callisto landing site. Build with the standalone CLI — see README.
+// Colors mirror design tokens used in the Android app (CallistoColors).
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+    content: ['./*.html'],
     theme: {
         extend: {
             colors: {

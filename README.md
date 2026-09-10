@@ -2,32 +2,59 @@
 
 Marketing landing page for [Callisto](https://callistoapp.eu) — an Android Python IDE with `.ipynb` and `.py` editing/execution.
 
-Static HTML + Tailwind (via CDN) + FontAwesome. No build step.
+Static HTML + Tailwind CSS (prebuilt into `assets/site.css`, committed) + inline Font Awesome SVG icons. No framework, no npm.
 
 **Copy currency: app version 1.5.0** (remote kernels, streaming output, server
 files). The landing copy names Pro features and carries a `softwareVersion` in
 the `SoftwareApplication` JSON-LD, so a feature release means a pass over
 `index.html`: the feature cards, the FAQ (**both** the visible answers and the
-mirrored `FAQPage` JSON-LD — Google wants them identical), and the Pro line in
-the stack section.
+mirrored `FAQPage` JSON-LD — Google wants them identical), and the Free /
+Lifetime Unlock package groups and Pro line in the stack section.
+
+## Building the CSS
+
+`assets/site.css` is generated: Tailwind scans the HTML pages and emits only the
+classes they use. **Rebuild after adding or changing any class in any page** —
+otherwise the new class simply doesn't exist on the live site. It uses the
+Tailwind v3 standalone CLI, a single binary (gitignored):
+
+```bash
+curl -sSLo tailwindcss https://github.com/tailwindlabs/tailwindcss/releases/download/v3.4.17/tailwindcss-macos-arm64 && chmod +x tailwindcss
+```
+
+```bash
+./tailwindcss -i tailwind.css -o assets/site.css --minify
+```
+
+- [`tailwind.config.js`](tailwind.config.js) — design tokens (mirrors `CallistoColors` in the app)
+- [`tailwind.css`](tailwind.css) — the Tailwind entry point plus the few hand-written rules (feature-card reveal)
+
+Icons are Font Awesome Free 6.x SVGs pasted inline as
+`<svg class="h-[1em] w-auto shrink-0 fill-current …" viewBox="…" aria-hidden="true"><path d="…"/></svg>`,
+so `text-*` sizes and colours them the way it did the old `<i>` tags.
 
 ## Pages
 
 | File | Purpose |
 |---|---|
-| [`index.html`](index.html) | Landing — hero, features, bundled-package list, CTA |
+| [`index.html`](index.html) | Landing — hero, features, bundled-package list, FAQ, CTA |
 | [`privacy.html`](privacy.html) | Privacy Policy (GDPR-aligned, **should** mirror in-app text — see below) |
 | [`terms.html`](terms.html) | Terms of Service (Austrian law, **should** mirror in-app text — see below) |
 | [`licences.html`](licences.html) | Open-source licences for bundled components |
 | [`legal.html`](legal.html) | Legal hub + ECG §5 / MedienG §25 imprint |
-| [`404.html`](404.html) | Themed not-found page |
+| [`404.html`](404.html) | Themed not-found page (root-relative asset URLs — it is served at any path) |
 
 ## Assets
 
 - [`assets/callisto-icon.png`](assets/callisto-icon.png) — 512 px launcher icon (08c artwork)
 - [`assets/callisto-icon@2x.png`](assets/callisto-icon@2x.png) — 1024 px @2x
-- [`assets/tailwind-config.js`](assets/tailwind-config.js) — design tokens (mirrors `CallistoColors` in the app)
-- [`assets/screenshot.svg`](assets/screenshot.png) — app screenshot.
+- [`assets/site.css`](assets/site.css) — built Tailwind output, see above
+- [`assets/screenshot.png`](assets/screenshot.png) — app screenshot, full resolution (1150×2492)
+- [`assets/screenshot.webp`](assets/screenshot.webp) — what the page actually serves, 720 px wide. Regenerate when the screenshot changes:
+
+```bash
+cwebp -q 88 -resize 720 0 assets/screenshot.png -o assets/screenshot.webp
+```
 
 ## The legal pages are ahead of the shipped app until 1.5.1
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="motion-safe:scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,16 +12,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="assets/tailwind-config.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/site.css">
+    <!-- Icons: Font Awesome Free 6.4.0 by @fontawesome, inlined as SVG. https://fontawesome.com/license/free (Icons: CC BY 4.0) -->
     <style>
         .prose h2 { font-size: 1.5rem; font-weight: 700; color: #F5F7FA; margin-top: 2.5rem; margin-bottom: 1rem; }
         .prose p { color: #9AA3B2; line-height: 1.75; margin-bottom: 1rem; }
         .prose a { color: #5EEAD4; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(94,234,212,0.4); }
         .prose a:hover { text-decoration-color: #5EEAD4; }
         .prose strong { color: #E6E9EF; font-weight: 600; }
-        .prose .meta { color: #6B7280; font-size: 0.875rem; }
+        .prose .meta { color: #9AA3B2; font-size: 0.875rem; }
     </style>
 </head>
 <body class="bg-bg text-fg font-sans antialiased flex flex-col min-h-screen">
@@ -40,7 +39,7 @@
 
     <main class="flex-grow container mx-auto px-6 py-8 md:py-12 max-w-3xl">
         <a href="legal.html" class="inline-flex items-center gap-2 text-sm text-fgMuted hover:text-accent transition-colors mb-8">
-            <i class="fa-solid fa-arrow-left text-xs"></i>
+            <svg class="text-xs h-[1em] w-auto shrink-0 fill-current" viewBox="0 0 448 512" aria-hidden="true"><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
             Back to Legal
         </a>
 
@@ -116,11 +115,11 @@
 
     <footer class="bg-bg py-8 border-t border-borderApp mt-12">
         <div class="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4 text-sm">
-            <p class="text-fgDim">&copy; 2026 Sebastian Pichler. All rights reserved.</p>
+            <p class="text-fgMuted">&copy; 2026 Sebastian Pichler. All rights reserved.</p>
             <div class="flex items-center gap-6">
                 <a href="legal.html" class="text-fgMuted hover:text-accent transition-colors">Legal</a>
                 <a href="mailto:dev@callistoapp.eu" class="text-fgMuted hover:text-accent transition-colors flex items-center gap-2">
-                    <i class="fa-regular fa-envelope"></i>
+                    <svg class="h-[1em] w-auto shrink-0 fill-current" viewBox="0 0 512 512" aria-hidden="true"><path d="M64 112c-8.8 0-16 7.2-16 16v22.1L220.5 291.7c20.7 17 50.4 17 71.1 0L464 150.1V128c0-8.8-7.2-16-16-16H64zM48 212.2V384c0 8.8 7.2 16 16 16H448c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.7 31.5-132 0L48 212.2zM0 128C0 92.7 28.7 64 64 64H448c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128z"/></svg>
                     dev@callistoapp.eu
                 </a>
             </div>

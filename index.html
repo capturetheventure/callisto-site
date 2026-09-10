@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="motion-safe:scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,10 +32,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="assets/tailwind-config.js"></script>
+    <link rel="stylesheet" href="assets/site.css">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Icons: Font Awesome Free 6.4.0 by @fontawesome, inlined as SVG. https://fontawesome.com/license/free (Icons: CC BY 4.0) -->
 
     <script type="application/ld+json">
     {
@@ -44,7 +43,7 @@
       "name": "Callisto: Jupyter Editor",
       "operatingSystem": "Android",
       "applicationCategory": "DeveloperApplication",
-      "description": "Callisto is a Jupyter Notebook editor and Python IDE for Android. Open .ipynb files, edit cells, run Python code, and see output — on-device by default, so it works fully offline with no server or cloud account. Notebooks can optionally be run on a Jupyter server you provide.",
+      "description": "Callisto is a Jupyter Notebook editor and Python IDE for Android. Open .ipynb files, edit cells, run Python code, and see output — on-device by default, so it works offline with no server or cloud account. Notebooks can optionally be run on a Jupyter server you provide.",
       "softwareVersion": "1.5.0",
       "url": "https://callistoapp.eu/",
       "image": "https://callistoapp.eu/assets/callisto-icon@2x.png",
@@ -124,11 +123,12 @@
       ]
     }
     </script>
+    <script>document.documentElement.classList.add("js");</script>
 </head>
 <body class="bg-bg text-fg font-sans antialiased selection:bg-accentSolid/30 selection:text-fgStrong flex flex-col min-h-screen">
 
     <!-- Navigation -->
-    <nav class="container mx-auto px-6 py-6 flex items-center justify-between">
+    <nav class="container mx-auto px-6 py-4 md:py-6 flex items-center justify-between">
         <a href="/" class="flex items-center gap-3">
             <img src="assets/callisto-icon.png" alt="Callisto" width="40" height="40" class="w-10 h-10 rounded-xl shadow-[0_0_15px_rgba(94,234,212,0.25)]">
             <span class="text-2xl font-bold tracking-tight text-fgStrong">Callisto</span>
@@ -140,24 +140,36 @@
             <a href="legal.html" class="text-fgMuted hover:text-fgStrong transition-colors">Legal</a>
             <a href="mailto:dev@callistoapp.eu" class="text-fgMuted hover:text-fgStrong transition-colors">Contact</a>
         </div>
+        <!-- Phones get no nav links, so the header carries the CTA instead -->
+        <a href="https://play.google.com/store/apps/details?id=app.callisto" class="sm:hidden inline-flex items-center gap-2 bg-fgStrong hover:bg-fg text-bg px-4 py-2 rounded-full text-sm font-bold transition-colors">
+            <svg class="h-[1em] w-auto shrink-0 fill-current" viewBox="0 0 512 512" aria-hidden="true"><path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/></svg>
+            Get the app
+        </a>
     </nav>
 
     <!-- Hero Section -->
-    <main class="flex-grow">
-        <div class="container mx-auto px-6 py-12 md:py-20 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+    <!-- overflow-x-clip: the hero glow is wider than the viewport. clip, not hidden, so <main> doesn't become a scroll container. -->
+    <main class="flex-grow overflow-x-clip">
+        <div class="container mx-auto px-6 pt-6 pb-12 md:pt-12 md:pb-20 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center lg:items-start">
 
             <!-- Hero Text -->
-            <div class="max-w-xl space-y-8 z-10">
-                <h1 class="text-5xl md:text-6xl font-extrabold leading-tight text-fgStrong">
-                    Jupyter Notebooks. <br>
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-accentSolid">In your pocket.</span>
-                </h1>
-                <p class="text-lg md:text-xl text-fgMuted leading-relaxed">
-                    Callisto is a full Python IDE for Android. Edit and run <code class="font-mono text-fg text-base">.ipynb</code> notebooks and <code class="font-mono text-fg text-base">.py</code> scripts on your device — no cloud, no account, no internet required. Or point it at your own Jupyter server when the phone isn't enough.
+            <div class="max-w-xl space-y-6 md:space-y-8 z-10 lg:pt-8">
+                <div class="space-y-4">
+                    <p class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accentSolid/10 border border-accentSolid/30 text-accent text-xs sm:text-sm font-semibold">
+                        <span class="w-1.5 h-1.5 rounded-full bg-accent"></span>
+                        Python IDE for Android &middot; Free on Google Play
+                    </p>
+                    <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-[1.1] text-fgStrong">
+                        Jupyter Notebooks. <br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-accentSolid">In your pocket.</span>
+                    </h1>
+                </div>
+                <p class="text-lg md:text-xl text-fgMuted leading-normal">
+                    Edit and run <code class="font-mono text-fg text-base">.ipynb</code> notebooks and <code class="font-mono text-fg text-base">.py</code> scripts right on your phone — no cloud, no account, no internet required. Need more power? Point it at your own Jupyter server.
                 </p>
                 <div class="pt-2 flex flex-col sm:flex-row gap-4">
                     <a href="https://play.google.com/store/apps/details?id=app.callisto" class="inline-flex items-center gap-4 bg-fgStrong hover:bg-fg text-bg px-8 py-4 rounded-full font-bold transition-all transform hover:scale-105 hover:shadow-[0_0_20px_rgba(230,233,239,0.2)]">
-                        <i class="fa-brands fa-google-play text-2xl"></i>
+                        <svg class="text-2xl h-[1em] w-auto shrink-0 fill-current" viewBox="0 0 512 512" aria-hidden="true"><path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/></svg>
                         <div class="flex flex-col text-left">
                             <span class="text-[10px] uppercase tracking-wider font-semibold opacity-80 leading-none mb-1">Get it on</span>
                             <span class="text-lg leading-none">Google Play</span>
@@ -165,7 +177,7 @@
                     </a>
                     <a href="#features" class="inline-flex items-center justify-center gap-3 border border-borderStrong hover:border-accent text-fg px-6 py-4 rounded-full font-semibold transition-colors">
                         <span>What's inside</span>
-                        <i class="fa-solid fa-arrow-down text-sm text-accent"></i>
+                        <svg class="text-sm text-accent h-[1em] w-auto shrink-0 fill-current" viewBox="0 0 384 512" aria-hidden="true"><path d="M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"/></svg>
                     </a>
                 </div>
             </div>
@@ -186,8 +198,9 @@
                     different status-bar layout.
                 -->
                 <div class="relative w-[280px] sm:w-[320px] aspect-[1150/2492] bg-bg border-4 border-borderStrong rounded-[1.5rem] shadow-2xl overflow-hidden">
-                    <img src="assets/screenshot.png"
+                    <img src="assets/screenshot.webp" width="720" height="1561"
                          alt="Callisto running on Android"
+                         decoding="async"
                          class="absolute inset-0 w-full h-full object-cover object-top">
                     <!-- Pixel-style centered punch-hole camera -->
                     <div class="absolute top-[10px] sm:top-[12px] left-1/2 -translate-x-1/2 w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-black shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06)] z-20"></div>
@@ -197,9 +210,9 @@
         </div>
 
         <!-- Features Section -->
-        <section id="features" class="bg-bg2 border-y border-borderApp py-20 overflow-hidden scroll-mt-20">
+        <section id="features" class="bg-bg2 border-y border-borderApp py-14 md:py-20 overflow-hidden scroll-mt-20">
             <div class="container mx-auto px-6">
-                <div class="max-w-2xl mb-12">
+                <div class="max-w-2xl mb-8 md:mb-12">
                     <h2 class="text-3xl md:text-4xl font-bold text-fgStrong mb-4">A real Python IDE — built for touch.</h2>
                     <p class="text-fgMuted leading-relaxed">
                         Callisto isn't a code playground. It's a complete editor and runtime, designed from scratch for Android.
@@ -208,9 +221,9 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-                    <div class="reveal-item opacity-0 translate-y-8 transition-all duration-700 ease-out bg-bg3 border border-borderSoft hover:border-borderStrong rounded-2xl p-8 flex flex-col">
+                    <div class="reveal-item bg-bg3 border border-borderSoft hover:border-borderStrong transition-colors rounded-2xl p-6 md:p-8 flex flex-col">
                         <div class="w-12 h-12 bg-accentSolid/10 rounded-lg flex items-center justify-center mb-6">
-                            <i class="fa-solid fa-microchip text-accent text-xl"></i>
+                            <svg class="text-accent text-xl h-[1em] w-auto shrink-0 fill-current" viewBox="0 0 512 512" aria-hidden="true"><path d="M176 24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64c-35.3 0-64 28.7-64 64H24c-13.3 0-24 10.7-24 24s10.7 24 24 24H64v56H24c-13.3 0-24 10.7-24 24s10.7 24 24 24H64v56H24c-13.3 0-24 10.7-24 24s10.7 24 24 24H64c0 35.3 28.7 64 64 64v40c0 13.3 10.7 24 24 24s24-10.7 24-24V448h56v40c0 13.3 10.7 24 24 24s24-10.7 24-24V448h56v40c0 13.3 10.7 24 24 24s24-10.7 24-24V448c35.3 0 64-28.7 64-64h40c13.3 0 24-10.7 24-24s-10.7-24-24-24H448V280h40c13.3 0 24-10.7 24-24s-10.7-24-24-24H448V176h40c13.3 0 24-10.7 24-24s-10.7-24-24-24H448c0-35.3-28.7-64-64-64V24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64H280V24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64H176V24zM160 128H352c17.7 0 32 14.3 32 32V352c0 17.7-14.3 32-32 32H160c-17.7 0-32-14.3-32-32V160c0-17.7 14.3-32 32-32zm192 32H160V352H352V160z"/></svg>
                         </div>
                         <h3 class="text-xl font-bold text-fgStrong mb-3">On-device by default</h3>
                         <p class="text-fgMuted leading-relaxed">
@@ -218,9 +231,9 @@
                         </p>
                     </div>
 
-                    <div class="reveal-item opacity-0 translate-y-8 transition-all duration-700 ease-out delay-100 bg-bg3 border border-borderSoft hover:border-borderStrong rounded-2xl p-8 flex flex-col">
+                    <div class="reveal-item bg-bg3 border border-borderSoft hover:border-borderStrong transition-colors rounded-2xl p-6 md:p-8 flex flex-col">
                         <div class="w-12 h-12 bg-accentSolid/10 rounded-lg flex items-center justify-center mb-6">
-                            <i class="fa-solid fa-book text-accent text-xl"></i>
+                            <svg class="text-accent text-xl h-[1em] w-auto shrink-0 fill-current" viewBox="0 0 448 512" aria-hidden="true"><path d="M96 0C43 0 0 43 0 96V416c0 53 43 96 96 96H384h32c17.7 0 32-14.3 32-32s-14.3-32-32-32V384c17.7 0 32-14.3 32-32V32c0-17.7-14.3-32-32-32H384 96zm0 384H352v64H96c-17.7 0-32-14.3-32-32s14.3-32 32-32zm32-240c0-8.8 7.2-16 16-16H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16zm16 48H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16s7.2-16 16-16z"/></svg>
                         </div>
                         <h3 class="text-xl font-bold text-fgStrong mb-3">Full notebook support</h3>
                         <p class="text-fgMuted leading-relaxed">
@@ -228,9 +241,9 @@
                         </p>
                     </div>
 
-                    <div class="reveal-item opacity-0 translate-y-8 transition-all duration-700 ease-out delay-150 bg-bg3 border border-borderSoft hover:border-borderStrong rounded-2xl p-8 flex flex-col">
+                    <div class="reveal-item bg-bg3 border border-borderSoft hover:border-borderStrong transition-colors rounded-2xl p-6 md:p-8 flex flex-col">
                         <div class="w-12 h-12 bg-accentSolid/10 rounded-lg flex items-center justify-center mb-6">
-                            <i class="fa-solid fa-code text-accent text-xl"></i>
+                            <svg class="text-accent text-xl h-[1em] w-auto shrink-0 fill-current" viewBox="0 0 640 512" aria-hidden="true"><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg>
                         </div>
                         <h3 class="text-xl font-bold text-fgStrong mb-3">Smart editor</h3>
                         <p class="text-fgMuted leading-relaxed">
@@ -238,9 +251,9 @@
                         </p>
                     </div>
 
-                    <div class="reveal-item opacity-0 translate-y-8 transition-all duration-700 ease-out delay-200 bg-bg3 border border-borderSoft hover:border-borderStrong rounded-2xl p-8 flex flex-col">
+                    <div class="reveal-item bg-bg3 border border-borderSoft hover:border-borderStrong transition-colors rounded-2xl p-6 md:p-8 flex flex-col">
                         <div class="w-12 h-12 bg-accentSolid/10 rounded-lg flex items-center justify-center mb-6">
-                            <i class="fa-solid fa-terminal text-accent text-xl"></i>
+                            <svg class="text-accent text-xl h-[1em] w-auto shrink-0 fill-current" viewBox="0 0 576 512" aria-hidden="true"><path d="M9.4 86.6C-3.1 74.1-3.1 53.9 9.4 41.4s32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L178.7 256 9.4 86.6zM256 416H544c17.7 0 32 14.3 32 32s-14.3 32-32 32H256c-17.7 0-32-14.3-32-32s14.3-32 32-32z"/></svg>
                         </div>
                         <h3 class="text-xl font-bold text-fgStrong mb-3">Scripts &amp; REPL</h3>
                         <p class="text-fgMuted leading-relaxed">
@@ -248,9 +261,9 @@
                         </p>
                     </div>
 
-                    <div class="reveal-item opacity-0 translate-y-8 transition-all duration-700 ease-out delay-250 bg-bg3 border border-borderSoft hover:border-borderStrong rounded-2xl p-8 flex flex-col">
+                    <div class="reveal-item bg-bg3 border border-borderSoft hover:border-borderStrong transition-colors rounded-2xl p-6 md:p-8 flex flex-col">
                         <div class="w-12 h-12 bg-accentSolid/10 rounded-lg flex items-center justify-center mb-6">
-                            <i class="fa-solid fa-square-root-variable text-accent text-xl"></i>
+                            <svg class="text-accent text-xl h-[1em] w-auto shrink-0 fill-current" viewBox="0 0 576 512" aria-hidden="true"><path d="M282.6 78.1c8-27.3 33-46.1 61.4-46.1H544c17.7 0 32 14.3 32 32s-14.3 32-32 32H344L238.7 457c-3.6 12.3-14.1 21.2-26.8 22.8s-25.1-4.6-31.5-15.6L77.6 288H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H77.6c22.8 0 43.8 12.1 55.3 31.8l65.2 111.8L282.6 78.1zM393.4 233.4c12.5-12.5 32.8-12.5 45.3 0L480 274.7l41.4-41.4c12.5-12.5 32.8-12.5 45.3 0s12.5 32.8 0 45.3L525.3 320l41.4 41.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L480 365.3l-41.4 41.4c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L434.7 320l-41.4-41.4c-12.5-12.5-12.5-32.8 0-45.3z"/></svg>
                         </div>
                         <h3 class="text-xl font-bold text-fgStrong mb-3">Markdown &amp; LaTeX</h3>
                         <p class="text-fgMuted leading-relaxed">
@@ -258,9 +271,9 @@
                         </p>
                     </div>
 
-                    <div class="reveal-item opacity-0 translate-y-8 transition-all duration-700 ease-out delay-300 bg-bg3 border border-borderSoft hover:border-borderStrong rounded-2xl p-8 flex flex-col">
+                    <div class="reveal-item bg-bg3 border border-borderSoft hover:border-borderStrong transition-colors rounded-2xl p-6 md:p-8 flex flex-col">
                         <div class="w-12 h-12 bg-accentSolid/10 rounded-lg flex items-center justify-center mb-6">
-                            <i class="fa-solid fa-folder-tree text-accent text-xl"></i>
+                            <svg class="text-accent text-xl h-[1em] w-auto shrink-0 fill-current" viewBox="0 0 576 512" aria-hidden="true"><path d="M64 32C64 14.3 49.7 0 32 0S0 14.3 0 32v96V384c0 35.3 28.7 64 64 64H256V384H64V160H256V96H64V32zM288 192c0 17.7 14.3 32 32 32H544c17.7 0 32-14.3 32-32V64c0-17.7-14.3-32-32-32H445.3c-8.5 0-16.6-3.4-22.6-9.4L409.4 9.4c-6-6-14.1-9.4-22.6-9.4H320c-17.7 0-32 14.3-32 32V192zm0 288c0 17.7 14.3 32 32 32H544c17.7 0 32-14.3 32-32V352c0-17.7-14.3-32-32-32H445.3c-8.5 0-16.6-3.4-22.6-9.4l-13.3-13.3c-6-6-14.1-9.4-22.6-9.4H320c-17.7 0-32 14.3-32 32V480z"/></svg>
                         </div>
                         <h3 class="text-xl font-bold text-fgStrong mb-3">Workspaces &amp; export</h3>
                         <p class="text-fgMuted leading-relaxed">
@@ -268,9 +281,9 @@
                         </p>
                     </div>
 
-                    <div class="reveal-item opacity-0 translate-y-8 transition-all duration-700 ease-out bg-bg3 border border-borderSoft hover:border-borderStrong rounded-2xl p-8 flex flex-col">
+                    <div class="reveal-item bg-bg3 border border-borderSoft hover:border-borderStrong transition-colors rounded-2xl p-6 md:p-8 flex flex-col">
                         <div class="w-12 h-12 bg-accentSolid/10 rounded-lg flex items-center justify-center mb-6">
-                            <i class="fa-solid fa-wave-square text-accent text-xl"></i>
+                            <svg class="text-accent text-xl h-[1em] w-auto shrink-0 fill-current" viewBox="0 0 640 512" aria-hidden="true"><path d="M128 64c0-17.7 14.3-32 32-32H320c17.7 0 32 14.3 32 32V416h96V256c0-17.7 14.3-32 32-32H608c17.7 0 32 14.3 32 32s-14.3 32-32 32H512V448c0 17.7-14.3 32-32 32H320c-17.7 0-32-14.3-32-32V96H192V256c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32h96V64z"/></svg>
                         </div>
                         <h3 class="text-xl font-bold text-fgStrong mb-3">Live output</h3>
                         <p class="text-fgMuted leading-relaxed">
@@ -278,10 +291,10 @@
                         </p>
                     </div>
 
-                    <div class="reveal-item opacity-0 translate-y-8 transition-all duration-700 ease-out delay-100 bg-bg3 border border-borderSoft hover:border-borderStrong rounded-2xl p-8 flex flex-col">
+                    <div class="reveal-item bg-bg3 border border-borderSoft hover:border-borderStrong transition-colors rounded-2xl p-6 md:p-8 flex flex-col">
                         <div class="flex items-center justify-between mb-6">
                             <div class="w-12 h-12 bg-accentSolid/10 rounded-lg flex items-center justify-center">
-                                <i class="fa-solid fa-server text-accent text-xl"></i>
+                                <svg class="text-accent text-xl h-[1em] w-auto shrink-0 fill-current" viewBox="0 0 512 512" aria-hidden="true"><path d="M64 32C28.7 32 0 60.7 0 96v64c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm280 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48zm48 24a24 24 0 1 1 48 0 24 24 0 1 1 -48 0zM64 288c-35.3 0-64 28.7-64 64v64c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V352c0-35.3-28.7-64-64-64H64zm280 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48zm56 24a24 24 0 1 1 48 0 24 24 0 1 1 -48 0z"/></svg>
                             </div>
                             <span class="px-2.5 py-1 rounded-full bg-accentSolid/10 border border-accentSolid/30 text-accent text-[11px] font-bold uppercase tracking-wider">Pro</span>
                         </div>
@@ -291,10 +304,10 @@
                         </p>
                     </div>
 
-                    <div class="reveal-item opacity-0 translate-y-8 transition-all duration-700 ease-out delay-150 bg-bg3 border border-borderSoft hover:border-borderStrong rounded-2xl p-8 flex flex-col">
+                    <div class="reveal-item bg-bg3 border border-borderSoft hover:border-borderStrong transition-colors rounded-2xl p-6 md:p-8 flex flex-col">
                         <div class="flex items-center justify-between mb-6">
                             <div class="w-12 h-12 bg-accentSolid/10 rounded-lg flex items-center justify-center">
-                                <i class="fa-solid fa-cloud-arrow-up text-accent text-xl"></i>
+                                <svg class="text-accent text-xl h-[1em] w-auto shrink-0 fill-current" viewBox="0 0 640 512" aria-hidden="true"><path d="M144 480C64.5 480 0 415.5 0 336c0-62.8 40.2-116.2 96.2-135.9c-.1-2.7-.2-5.4-.2-8.1c0-88.4 71.6-160 160-160c59.3 0 111 32.2 138.7 80.2C409.9 102 428.3 96 448 96c53 0 96 43 96 96c0 12.2-2.3 23.8-6.4 34.6C596 238.4 640 290.1 640 352c0 70.7-57.3 128-128 128H144zm79-217c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l39-39V392c0 13.3 10.7 24 24 24s24-10.7 24-24V257.9l39 39c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-80-80c-9.4-9.4-24.6-9.4-33.9 0l-80 80z"/></svg>
                             </div>
                             <span class="px-2.5 py-1 rounded-full bg-accentSolid/10 border border-accentSolid/30 text-accent text-[11px] font-bold uppercase tracking-wider">Pro</span>
                         </div>
@@ -309,32 +322,39 @@
         </section>
 
         <!-- Stack Section -->
-        <section id="stack" class="py-20 scroll-mt-20">
-            <div class="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <section id="stack" class="py-14 md:py-20 scroll-mt-20">
+            <div class="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
                 <div class="space-y-6">
                     <h2 class="text-3xl md:text-4xl font-bold text-fgStrong">The full scientific stack — pre-installed.</h2>
                     <p class="text-fgMuted leading-relaxed text-lg">
                         Callisto ships with the libraries you actually use. No <code class="font-mono text-fg">pip install</code>, no broken wheels, no waiting for a manylinux build that doesn't exist on ARM.
                     </p>
                     <p class="text-fgMuted leading-relaxed">
-                        Free tier includes the core data-science stack. The one-time <span class="text-fg font-semibold">Lifetime Unlock</span> adds the extended packages, remote kernels and the coding keyboard — no subscription, ever.
+                        The free tier covers the essentials. The one-time <span class="text-fg font-semibold">Lifetime Unlock</span> adds the rest of the stack, remote kernels and the coding keyboard — no subscription, ever.
                     </p>
                 </div>
                 <div class="bg-panel border border-borderSoft rounded-2xl p-6 md:p-8">
+                    <p class="text-xs font-semibold uppercase tracking-wider text-fgMuted mb-3">Free</p>
                     <div class="flex flex-wrap gap-2">
                         <span class="px-3 py-1.5 rounded-full bg-bg3 border border-borderSoft text-sm font-mono text-fg">numpy</span>
-                        <span class="px-3 py-1.5 rounded-full bg-bg3 border border-borderSoft text-sm font-mono text-fg">pandas</span>
                         <span class="px-3 py-1.5 rounded-full bg-bg3 border border-borderSoft text-sm font-mono text-fg">matplotlib</span>
+                        <span class="px-3 py-1.5 rounded-full bg-bg3 border border-borderSoft text-sm font-mono text-fg">pillow</span>
+                        <span class="px-3 py-1.5 rounded-full bg-bg3 border border-borderSoft text-sm font-mono text-fg">jedi</span>
+                    </div>
+                    <div class="flex items-center gap-2 mt-6 mb-3">
+                        <p class="text-xs font-semibold uppercase tracking-wider text-fgMuted">Lifetime Unlock</p>
+                        <span class="px-2 py-0.5 rounded-full bg-accentSolid/10 border border-accentSolid/30 text-accent text-[10px] font-bold uppercase tracking-wider">Pro</span>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 rounded-full bg-bg3 border border-borderSoft text-sm font-mono text-fg">pandas</span>
                         <span class="px-3 py-1.5 rounded-full bg-bg3 border border-borderSoft text-sm font-mono text-fg">scikit-learn</span>
-                        <span class="px-3 py-1.5 rounded-full bg-bg3 border border-borderSoft text-sm font-mono text-fg">seaborn</span>
                         <span class="px-3 py-1.5 rounded-full bg-bg3 border border-borderSoft text-sm font-mono text-fg">scipy</span>
+                        <span class="px-3 py-1.5 rounded-full bg-bg3 border border-borderSoft text-sm font-mono text-fg">seaborn</span>
                         <span class="px-3 py-1.5 rounded-full bg-bg3 border border-borderSoft text-sm font-mono text-fg">statsmodels</span>
                         <span class="px-3 py-1.5 rounded-full bg-bg3 border border-borderSoft text-sm font-mono text-fg">sympy</span>
                         <span class="px-3 py-1.5 rounded-full bg-bg3 border border-borderSoft text-sm font-mono text-fg">openpyxl</span>
                         <span class="px-3 py-1.5 rounded-full bg-bg3 border border-borderSoft text-sm font-mono text-fg">beautifulsoup4</span>
-                        <span class="px-3 py-1.5 rounded-full bg-bg3 border border-borderSoft text-sm font-mono text-fg">pillow</span>
                         <span class="px-3 py-1.5 rounded-full bg-bg3 border border-borderSoft text-sm font-mono text-fg">requests</span>
-                        <span class="px-3 py-1.5 rounded-full bg-bg3 border border-borderSoft text-sm font-mono text-fg">jedi</span>
                     </div>
                     <div class="mt-6 pt-6 border-t border-borderSoft text-sm text-fgMuted">
                         Powered by <span class="text-fg font-semibold">CPython 3.10</span> via Chaquopy. Real wheels, real semantics.
@@ -343,70 +363,91 @@
             </div>
         </section>
 
-        <!-- FAQ Section -->
-        <section id="faq" class="bg-bg2 border-t border-borderApp py-20 scroll-mt-20">
+        <!-- FAQ Section. Collapsed <details>: answers stay in the DOM, matching the FAQPage JSON-LD above. -->
+        <section id="faq" class="bg-bg2 border-t border-borderApp py-14 md:py-20 scroll-mt-20">
             <div class="container mx-auto px-6 max-w-3xl">
-                <h2 class="text-3xl md:text-4xl font-bold text-fgStrong mb-12">Frequently asked questions</h2>
-                <div class="space-y-10">
+                <h2 class="text-3xl md:text-4xl font-bold text-fgStrong mb-8 md:mb-12">Frequently asked questions</h2>
+                <div class="border-y border-borderApp divide-y divide-borderApp">
 
-                    <div>
-                        <h3 class="text-xl font-bold text-fgStrong mb-3">Can you run Jupyter notebooks on Android?</h3>
-                        <p class="text-fgMuted leading-relaxed">
+                    <details class="group">
+                        <summary class="flex items-center justify-between gap-4 py-5 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+                            <h3 class="text-lg md:text-xl font-bold text-fgStrong">Can you run Jupyter notebooks on Android?</h3>
+                            <svg class="text-sm text-fgMuted transition-transform group-open:rotate-180 h-[1em] w-auto shrink-0 fill-current" viewBox="0 0 512 512" aria-hidden="true"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
+                        </summary>
+                        <p class="pb-6 text-fgMuted leading-relaxed">
                             Yes. Callisto runs Jupyter notebooks on your Android device using CPython 3.10 — no server, no Google Colab, and no internet connection required. You can run cells individually, run all, and interrupt long-running code. If you would rather use a bigger machine, connecting your own Jupyter server is optional.
                         </p>
-                    </div>
+                    </details>
 
-                    <div>
-                        <h3 class="text-xl font-bold text-fgStrong mb-3">How do I open and edit an <code class="font-mono text-fg">.ipynb</code> file on my phone?</h3>
-                        <p class="text-fgMuted leading-relaxed">
+                    <details class="group">
+                        <summary class="flex items-center justify-between gap-4 py-5 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+                            <h3 class="text-lg md:text-xl font-bold text-fgStrong">How do I open and edit an <code class="font-mono text-fg">.ipynb</code> file on my phone?</h3>
+                            <svg class="text-sm text-fgMuted transition-transform group-open:rotate-180 h-[1em] w-auto shrink-0 fill-current" viewBox="0 0 512 512" aria-hidden="true"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
+                        </summary>
+                        <p class="pb-6 text-fgMuted leading-relaxed">
                             Install Callisto from Google Play, then open the notebook from your file manager via &ldquo;Open with&hellip;&rdquo; or from the in-app library. Callisto reads and writes real <code class="font-mono text-fg">.ipynb</code> v4 files: edit code and Markdown cells, reorder them, run them, and save back.
                         </p>
-                    </div>
+                    </details>
 
-                    <div>
-                        <h3 class="text-xl font-bold text-fgStrong mb-3">Do I need Termux or a Linux environment to run Python on Android?</h3>
-                        <p class="text-fgMuted leading-relaxed">
+                    <details class="group">
+                        <summary class="flex items-center justify-between gap-4 py-5 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+                            <h3 class="text-lg md:text-xl font-bold text-fgStrong">Do I need Termux or a Linux environment to run Python on Android?</h3>
+                            <svg class="text-sm text-fgMuted transition-transform group-open:rotate-180 h-[1em] w-auto shrink-0 fill-current" viewBox="0 0 512 512" aria-hidden="true"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
+                        </summary>
+                        <p class="pb-6 text-fgMuted leading-relaxed">
                             No. Callisto is a regular Android app — no Termux, no proot, no pip troubleshooting. Python and the bundled packages ship inside the app and work out of the box.
                         </p>
-                    </div>
+                    </details>
 
-                    <div>
-                        <h3 class="text-xl font-bold text-fgStrong mb-3">Does Callisto work offline?</h3>
-                        <p class="text-fgMuted leading-relaxed">
+                    <details class="group">
+                        <summary class="flex items-center justify-between gap-4 py-5 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+                            <h3 class="text-lg md:text-xl font-bold text-fgStrong">Does Callisto work offline?</h3>
+                            <svg class="text-sm text-fgMuted transition-transform group-open:rotate-180 h-[1em] w-auto shrink-0 fill-current" viewBox="0 0 512 512" aria-hidden="true"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
+                        </summary>
+                        <p class="pb-6 text-fgMuted leading-relaxed">
                             Yes. Editing and execution happen on-device by default, so Callisto works on a plane or without any signal, and there is no account. Connecting to a Jupyter server is the one thing that needs a network — it is optional, off until you set one up, and it is your server, not ours.
                         </p>
-                    </div>
+                    </details>
 
-                    <div>
-                        <h3 class="text-xl font-bold text-fgStrong mb-3">Can I run a notebook on a remote Jupyter server?</h3>
-                        <p class="text-fgMuted leading-relaxed">
+                    <details class="group">
+                        <summary class="flex items-center justify-between gap-4 py-5 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+                            <h3 class="text-lg md:text-xl font-bold text-fgStrong">Can I run a notebook on a remote Jupyter server?</h3>
+                            <svg class="text-sm text-fgMuted transition-transform group-open:rotate-180 h-[1em] w-auto shrink-0 fill-current" viewBox="0 0 512 512" aria-hidden="true"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
+                        </summary>
+                        <p class="pb-6 text-fgMuted leading-relaxed">
                             Yes, from version 1.5.0. Callisto connects to any Jupyter server &mdash; Termux on the same phone, a desktop on your Wi-Fi, or a rented GPU box &mdash; and runs your notebook there. Output streams back while the code is still running, a run survives a dropped connection, and you can browse, upload and download the server's files. Remote kernels are part of the one-time Lifetime Unlock; on-device execution stays free.
                         </p>
-                    </div>
+                    </details>
 
-                    <div>
-                        <h3 class="text-xl font-bold text-fgStrong mb-3">Which Python packages are included?</h3>
-                        <p class="text-fgMuted leading-relaxed">
+                    <details class="group">
+                        <summary class="flex items-center justify-between gap-4 py-5 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+                            <h3 class="text-lg md:text-xl font-bold text-fgStrong">Which Python packages are included?</h3>
+                            <svg class="text-sm text-fgMuted transition-transform group-open:rotate-180 h-[1em] w-auto shrink-0 fill-current" viewBox="0 0 512 512" aria-hidden="true"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
+                        </summary>
+                        <p class="pb-6 text-fgMuted leading-relaxed">
                             The free tier bundles <code class="font-mono text-fg">numpy</code>, <code class="font-mono text-fg">matplotlib</code>, and <code class="font-mono text-fg">Pillow</code>. The one-time Lifetime Unlock adds <code class="font-mono text-fg">pandas</code>, <code class="font-mono text-fg">scikit-learn</code>, <code class="font-mono text-fg">scipy</code>, <code class="font-mono text-fg">seaborn</code>, <code class="font-mono text-fg">statsmodels</code>, <code class="font-mono text-fg">sympy</code>, <code class="font-mono text-fg">openpyxl</code>, <code class="font-mono text-fg">beautifulsoup4</code>, and <code class="font-mono text-fg">requests</code> — no subscription.
                         </p>
-                    </div>
+                    </details>
 
-                    <div>
-                        <h3 class="text-xl font-bold text-fgStrong mb-3">Is Callisto free?</h3>
-                        <p class="text-fgMuted leading-relaxed">
+                    <details class="group">
+                        <summary class="flex items-center justify-between gap-4 py-5 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+                            <h3 class="text-lg md:text-xl font-bold text-fgStrong">Is Callisto free?</h3>
+                            <svg class="text-sm text-fgMuted transition-transform group-open:rotate-180 h-[1em] w-auto shrink-0 fill-current" viewBox="0 0 512 512" aria-hidden="true"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
+                        </summary>
+                        <p class="pb-6 text-fgMuted leading-relaxed">
                             Callisto is free to install and use with the core stack. A single one-time purchase unlocks the full scientific package set, remote kernels and the coding keyboard — there is no subscription.
                         </p>
-                    </div>
+                    </details>
 
                 </div>
             </div>
         </section>
 
         <!-- Privacy / CTA Section -->
-        <section class="border-t border-borderApp py-20">
-            <div class="container mx-auto px-6 max-w-3xl text-center space-y-8">
+        <section class="border-t border-borderApp py-14 md:py-20">
+            <div class="container mx-auto px-6 max-w-3xl text-center space-y-6 md:space-y-8">
                 <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accentSolid/10 border border-accentSolid/30 text-accent text-sm font-semibold">
-                    <i class="fa-solid fa-shield-halved"></i>
+                    <svg class="h-[1em] w-auto shrink-0 fill-current" viewBox="0 0 512 512" aria-hidden="true"><path d="M256 0c4.6 0 9.2 1 13.4 2.9L457.7 82.8c22 9.3 38.4 31 38.3 57.2c-.5 99.2-41.3 280.7-213.6 363.2c-16.7 8-36.1 8-52.8 0C57.3 420.7 16.5 239.2 16 140c-.1-26.2 16.3-47.9 38.3-57.2L242.7 2.9C246.8 1 251.4 0 256 0zm0 66.8V444.8C394 378 431.1 230.1 432 141.4L256 66.8l0 0z"/></svg>
                     Your code goes where you send it — nowhere else
                 </div>
                 <h2 class="text-3xl md:text-4xl font-bold text-fgStrong">Privacy by design.</h2>
@@ -415,7 +456,7 @@
                 </p>
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
                     <a href="https://play.google.com/store/apps/details?id=app.callisto" class="inline-flex items-center gap-4 bg-accentSolid hover:bg-accent text-accentFg px-8 py-4 rounded-full font-bold transition-all transform hover:scale-105">
-                        <i class="fa-brands fa-google-play text-2xl"></i>
+                        <svg class="text-2xl h-[1em] w-auto shrink-0 fill-current" viewBox="0 0 512 512" aria-hidden="true"><path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/></svg>
                         <div class="flex flex-col text-left">
                             <span class="text-[10px] uppercase tracking-wider font-semibold opacity-80 leading-none mb-1">Download</span>
                             <span class="text-lg leading-none">Google Play</span>
@@ -428,7 +469,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-bg py-12 border-t border-borderApp">
+    <footer class="bg-bg py-10 md:py-12 border-t border-borderApp">
         <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
             <div class="md:col-span-2">
                 <div class="flex items-center gap-3 mb-3">
@@ -456,28 +497,33 @@
             </div>
         </div>
         <div class="container mx-auto px-6 pt-8 border-t border-borderSoft flex flex-col md:flex-row items-center justify-between gap-4 text-sm">
-            <p class="text-fgDim">&copy; 2026 Sebastian Pichler. All rights reserved.</p>
+            <p class="text-fgMuted">&copy; 2026 Sebastian Pichler. All rights reserved.</p>
             <a href="mailto:dev@callistoapp.eu" class="text-fgMuted hover:text-accent transition-colors flex items-center gap-2">
-                <i class="fa-regular fa-envelope"></i>
+                <svg class="h-[1em] w-auto shrink-0 fill-current" viewBox="0 0 512 512" aria-hidden="true"><path d="M64 112c-8.8 0-16 7.2-16 16v22.1L220.5 291.7c20.7 17 50.4 17 71.1 0L464 150.1V128c0-8.8-7.2-16-16-16H64zM48 212.2V384c0 8.8 7.2 16 16 16H448c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.7 31.5-132 0L48 212.2zM0 128C0 92.7 28.7 64 64 64H448c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128z"/></svg>
                 dev@callistoapp.eu
             </a>
         </div>
     </footer>
 
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
+        // Feature-card reveal. The hidden state is CSS behind html.js (see tailwind.css), so the
+        // cards stay visible without JS or with reduced motion; this only flips them on.
+        (() => {
+            const cards = document.querySelectorAll(".reveal-item");
+            if (!("IntersectionObserver" in window)) {
+                cards.forEach((card) => card.classList.add("is-visible"));
+                return;
+            }
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
-                        entry.target.classList.remove("opacity-0", "translate-y-8");
-                        entry.target.classList.add("opacity-100", "translate-y-0");
+                        entry.target.classList.add("is-visible");
                         observer.unobserve(entry.target);
                     }
                 });
-            }, { rootMargin: "0px", threshold: 0.1 });
-
-            document.querySelectorAll(".reveal-item").forEach((item) => observer.observe(item));
-        });
+            }, { threshold: 0.1 });
+            cards.forEach((card) => observer.observe(card));
+        })();
     </script>
 </body>
 </html>
