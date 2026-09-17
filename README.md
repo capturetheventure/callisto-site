@@ -57,6 +57,19 @@ so `text-*` sizes and colours them the way it did the old `<i>` tags.
 cwebp -q 88 -resize 720 0 assets/screenshot.png -o assets/screenshot.webp
 ```
 
+## The Privacy Policy on the site is ahead of the app (Version 1.2)
+
+Version 1.2 (17 September 2026) adds a *This website* section — GitHub Pages
+hosting, no cookies or tracking, e-mail enquiries — and names GitHub beside Google
+under processors. Nothing about the App changed, but the in-app copy is still
+Version 1.1. Bring the app's text in line in the next release, then delete this
+section.
+
+The site loads nothing from third parties (fonts are self-hosted in
+`assets/fonts/`, Font Awesome is inlined). Keep it that way: any external script,
+font, embed or analytics would need a new paragraph in the policy, and anything
+that stores on the device would need a consent banner.
+
 ## `assets/og-image.png` still says "fully offline"
 
 The social-share card (Open Graph / Twitter) carries the tagline *"Run & edit
