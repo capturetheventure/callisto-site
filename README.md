@@ -49,6 +49,7 @@ so `text-*` sizes and colours them the way it did the old `<i>` tags.
 - [`assets/callisto-icon.png`](assets/callisto-icon.png) — 512 px launcher icon (08c artwork)
 - [`assets/callisto-icon@2x.png`](assets/callisto-icon@2x.png) — 1024 px @2x
 - [`assets/site.css`](assets/site.css) — built Tailwind output, see above
+- [`assets/fonts/`](assets/fonts/) — Inter and Fira Code, variable woff2 (latin + latin-ext) from `@fontsource-variable` 5.3.0, SIL OFL 1.1; `@font-face` rules live in `tailwind.css`
 - [`assets/screenshot.png`](assets/screenshot.png) — app screenshot, full resolution (1150×2492)
 - [`assets/screenshot.webp`](assets/screenshot.webp) — what the page actually serves, 720 px wide. Regenerate when the screenshot changes:
 
