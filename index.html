@@ -44,7 +44,7 @@
       "operatingSystem": "Android",
       "applicationCategory": "DeveloperApplication",
       "description": "Callisto is a Jupyter Notebook editor and Python IDE for Android. Open .ipynb files, edit cells, run Python code, and see output — on-device by default, so it works offline with no server or cloud account. Notebooks can optionally be run on a Jupyter server you provide.",
-      "softwareVersion": "1.5.0",
+      "softwareVersion": "1.6.0",
       "url": "https://callistoapp.eu/",
       "image": "https://callistoapp.eu/assets/callisto-icon@2x.png",
       "installUrl": "https://play.google.com/store/apps/details?id=app.callisto",
@@ -77,7 +77,7 @@
           "name": "How do I open and edit an .ipynb file on my phone?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Install Callisto from Google Play, then open the notebook from your file manager via “Open with…” or from the in-app library. Callisto reads and writes real .ipynb v4 files: edit code and Markdown cells, reorder them, run them, and save back."
+            "text": "Install Callisto from Google Play, then open the notebook from your file manager via “Open with…” or from the in-app library. Callisto reads and writes real .ipynb v4 files: edit code and Markdown cells, reorder them, run them, and save back. Code cells are checked as you type — syntax errors, undefined names and unused imports are underlined."
           }
         },
         {
@@ -250,7 +250,7 @@
                         </div>
                         <h3 class="text-xl font-bold text-fgStrong mb-3">Full notebook support</h3>
                         <p class="text-fgMuted leading-relaxed">
-                            Open, edit, and save real <code class="font-mono text-fg">.ipynb</code> v4 files. Insert, duplicate, reorder cells. Run cell, run below, run all. Cooperative interrupt when a run hangs.
+                            Open, edit, and save real <code class="font-mono text-fg">.ipynb</code> v4 files. Run cell, run below, run all, interrupt a hung run. Markdown renders with KaTeX; Matplotlib figures display inline.
                         </p>
                     </div>
 
@@ -260,10 +260,19 @@
                         </div>
                         <h3 class="text-xl font-bold text-fgStrong mb-3">Smart editor</h3>
                         <p class="text-fgMuted leading-relaxed">
-                            CodeMirror 6 with Python syntax highlighting and Jedi auto-completion against the live namespace — <code class="font-mono text-fg">df.</code> resolves to actual DataFrame methods.
+                            CodeMirror 6 with Python highlighting and Jedi completion from the first letter. It knows names from earlier cells before they've run, and against the live namespace <code class="font-mono text-fg">df.</code> resolves to actual DataFrame methods.
                         </p>
                     </div>
 
+                    <div class="reveal-item bg-bg3 border border-borderSoft hover:border-borderStrong transition-colors rounded-2xl p-6 md:p-8 flex flex-col">
+                        <div class="w-12 h-12 bg-accentSolid/10 rounded-lg flex items-center justify-center mb-6">
+                            <svg class="text-accent text-xl h-[1em] w-auto shrink-0 fill-current" viewBox="0 0 576 512" aria-hidden="true"><path d="M0 64C0 28.7 28.7 0 64 0H224V128c0 17.7 14.3 32 32 32H384v38.6C310.1 219.5 256 287.4 256 368c0 59.1 29.1 111.3 73.7 143.3c-3.2 .5-6.4 .7-9.7 .7H64c-35.3 0-64-28.7-64-64V64zm384 64H256V0L384 128zm48 96a144 144 0 1 1 0 288 144 144 0 1 1 0-288zm0 240a24 24 0 1 0 0-48 24 24 0 1 0 0 48zm0-192c-8.8 0-16 7.2-16 16v80c0 8.8 7.2 16 16 16s16-7.2 16-16V288c0-8.8-7.2-16-16-16z"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-fgStrong mb-3">Diagnostics as you type</h3>
+                        <p class="text-fgMuted leading-relaxed">
+                            Syntax errors, undefined names and unused imports are underlined as you type, in cells and <code class="font-mono text-fg">.py</code> scripts. Each cell is checked against the whole notebook, so a name from an earlier cell isn't flagged.
+                        </p>
+                    </div>
                     <div class="reveal-item bg-bg3 border border-borderSoft hover:border-borderStrong transition-colors rounded-2xl p-6 md:p-8 flex flex-col">
                         <div class="w-12 h-12 bg-accentSolid/10 rounded-lg flex items-center justify-center mb-6">
                             <svg class="text-accent text-xl h-[1em] w-auto shrink-0 fill-current" viewBox="0 0 576 512" aria-hidden="true"><path d="M9.4 86.6C-3.1 74.1-3.1 53.9 9.4 41.4s32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L178.7 256 9.4 86.6zM256 416H544c17.7 0 32 14.3 32 32s-14.3 32-32 32H256c-17.7 0-32-14.3-32-32s14.3-32 32-32z"/></svg>
@@ -271,16 +280,6 @@
                         <h3 class="text-xl font-bold text-fgStrong mb-3">Scripts &amp; REPL</h3>
                         <p class="text-fgMuted leading-relaxed">
                             A <code class="font-mono text-fg">.py</code> editor and a Python console live side-by-side with your notebook. Variables flow both ways. Input history persists across sessions.
-                        </p>
-                    </div>
-
-                    <div class="reveal-item bg-bg3 border border-borderSoft hover:border-borderStrong transition-colors rounded-2xl p-6 md:p-8 flex flex-col">
-                        <div class="w-12 h-12 bg-accentSolid/10 rounded-lg flex items-center justify-center mb-6">
-                            <svg class="text-accent text-xl h-[1em] w-auto shrink-0 fill-current" viewBox="0 0 576 512" aria-hidden="true"><path d="M282.6 78.1c8-27.3 33-46.1 61.4-46.1H544c17.7 0 32 14.3 32 32s-14.3 32-32 32H344L238.7 457c-3.6 12.3-14.1 21.2-26.8 22.8s-25.1-4.6-31.5-15.6L77.6 288H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H77.6c22.8 0 43.8 12.1 55.3 31.8l65.2 111.8L282.6 78.1zM393.4 233.4c12.5-12.5 32.8-12.5 45.3 0L480 274.7l41.4-41.4c12.5-12.5 32.8-12.5 45.3 0s12.5 32.8 0 45.3L525.3 320l41.4 41.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L480 365.3l-41.4 41.4c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L434.7 320l-41.4-41.4c-12.5-12.5-12.5-32.8 0-45.3z"/></svg>
-                        </div>
-                        <h3 class="text-xl font-bold text-fgStrong mb-3">Markdown &amp; LaTeX</h3>
-                        <p class="text-fgMuted leading-relaxed">
-                            Markdown cells render with KaTeX. Cross-cell <code class="font-mono text-fg">\newcommand</code> definitions work. Matplotlib and seaborn figures display inline.
                         </p>
                     </div>
 
@@ -399,7 +398,7 @@
                             <svg class="text-sm text-fgMuted transition-transform group-open:rotate-180 h-[1em] w-auto shrink-0 fill-current" viewBox="0 0 512 512" aria-hidden="true"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
                         </summary>
                         <p class="pb-6 text-fgMuted leading-relaxed">
-                            Install Callisto from Google Play, then open the notebook from your file manager via &ldquo;Open with&hellip;&rdquo; or from the in-app library. Callisto reads and writes real <code class="font-mono text-fg">.ipynb</code> v4 files: edit code and Markdown cells, reorder them, run them, and save back.
+                            Install Callisto from Google Play, then open the notebook from your file manager via &ldquo;Open with&hellip;&rdquo; or from the in-app library. Callisto reads and writes real <code class="font-mono text-fg">.ipynb</code> v4 files: edit code and Markdown cells, reorder them, run them, and save back. Code cells are checked as you type — syntax errors, undefined names and unused imports are underlined.
                         </p>
                     </details>
 

@@ -4,12 +4,12 @@ Marketing landing page for [Callisto](https://callistoapp.eu) — an Android Pyt
 
 Static HTML + Tailwind CSS (prebuilt into `assets/site.css`, committed) + inline Font Awesome SVG icons. No framework, no npm.
 
-**Copy currency: app version 1.5.0** (remote kernels, streaming output, server
-files). The landing copy names Pro features and carries a `softwareVersion` in
-the `SoftwareApplication` JSON-LD, so a feature release means a pass over
-`index.html`: the feature cards, the FAQ (**both** the visible answers and the
-mirrored `FAQPage` JSON-LD — Google wants them identical), and the Free /
-Lifetime Unlock package groups and Pro line in the stack section.
+**Copy currency: app version 1.6.0** (Python diagnostics as you type, faster
+notebook-aware completion). The landing copy names Pro features and carries a
+`softwareVersion` in the `SoftwareApplication` JSON-LD, so a feature release
+means a pass over `index.html`: the feature cards, the FAQ (**both** the visible
+answers and the mirrored `FAQPage` JSON-LD — Google wants them identical), and
+the Free / Lifetime Unlock package groups and Pro line in the stack section.
 
 ## Building the CSS
 
@@ -55,17 +55,6 @@ so `text-*` sizes and colours them the way it did the old `<i>` tags.
 ```bash
 cwebp -q 88 -resize 720 0 assets/screenshot.png -o assets/screenshot.webp
 ```
-
-## The legal pages are ahead of the shipped app until 1.5.1
-
-Both were revised to **Version 1.1, effective 4 September 2026** for remote
-kernels: the Privacy Policy describes what travels to a Jupyter server you
-configure, and Terms §5 no longer claims all code runs on your device.
-
-The app's copies were brought in line on 2026-09-04 and are now identical to
-these pages, **but that fix is not in a released build.** 1.5.0 went into Play
-review carrying Version 1.0, so until 1.5.1 is live the text a user actually
-accepts in the app is still the older one. Delete this section when 1.5.1 ships.
 
 ## `assets/og-image.png` still says "fully offline"
 
