@@ -4,8 +4,8 @@ Marketing landing page for [Callisto](https://callistoapp.eu) — an Android Pyt
 
 Static HTML + Tailwind CSS (prebuilt into `assets/site.css`, committed) + inline Font Awesome SVG icons. No framework, no npm.
 
-**Copy currency: app version 1.6.0** (Python diagnostics as you type, faster
-notebook-aware completion). The landing copy names Pro features and carries a
+**Copy currency: app version 1.7.0** (Jupyter keyboard shortcuts, rich outputs
+and `display()` on device). The landing copy names Pro features and carries a
 `softwareVersion` in the `SoftwareApplication` JSON-LD, so a feature release
 means a pass over `index.html`: the feature cards, the FAQ (**both** the visible
 answers and the mirrored `FAQPage` JSON-LD — Google wants them identical), and
